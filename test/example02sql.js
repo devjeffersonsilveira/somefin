@@ -1,6 +1,8 @@
 
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('data/demodb02');
+var db = new sqlite3.Database('mydb.db');
+// var db = new sqlite3.Database(':memory:');
+//var check;
 
 db.serialize(function() {
     db.run("CREATE TABLE IF NOT EXISTS counts (key TEXT, value INTEGER)");
