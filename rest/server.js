@@ -10,11 +10,11 @@ var restapi = express();
 // });
 
 restapi.post('/createPotatos', potato.createPotatos);
-restapi.get("getPotatos", potato.getPotatos);
+restapi.get("/getPotatos", potato.getPotatos);
 //restapi.get("getPotato/:id", potato.getPotato);
 restapi.post('/createCarrots', carrot.createCarrots);
-restapi.get("getCarrots", carrot.getCarrots);
-//restapi.get("getPotato/:id", carrot.getCarrot);
+restapi.get("/getCarrots", carrot.getCarrots);
+restapi.get("/getCarrot/:id", carrot.getCarrot);
 
 
 restapi.listen(3000);

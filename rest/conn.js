@@ -4,15 +4,16 @@ var db = new sqlite3.Database('rest.db');
 
 db.serialize(function() {
   var sql = "CREATE TABLE IF NOT EXISTS potato ( ";
-  sql += "id INTEGER constraint pk_potato primary key, ";
-  sql += "des TEXT ";
+  sql += "idPotato INTEGER constraint pk_potato primary key, ";
+  sql += "desPotato TEXT ";
   sql += "); ";
-  sql += "CREATE TABLE IF NOT EXISTS carrot ( ";
-  sql += "id INTEGER constraint pk_carrot primary key, ";
-  sql += "des TEXT,";
-  sql += "idPotato int constrait fk_potatoCarrot foreign key reference (potato.id)";
+  db.run(sql);
+  sql = "CREATE TABLE IF NOT EXISTS carrot ( ";
+  sql += "idCarrot INTEGER constraint pk_carrot primary key, ";
+  sql += "idPotato INTEGER, ";
+  sql += "desCarrot TEXT,";
+  sql += "CONSTRAINT fk_potatoCarrot FOREIGN KEY (idPotato) REFERENCES potato(idPotato)";
   sql += "); ";
   db.run(sql);
 })
-console.log("showhsowaidsedrogas!!");
-exports.oi = "bilu";
+module.exports = db;
